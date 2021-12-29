@@ -18,12 +18,8 @@ const useStyles = makeStyles({
 
     personal_details: {
         position: "relative",
-        marginLeft: "10px",
-        width: "22%",
+        width: "15%",
         backgroundColor: "#334756",
-        // display: "flex",
-        // justifyContent: "center",
-        // alignItems: "center",
         padding: "3% 1%",
         "@media(max-width: 600px)": {
             width: "80%",

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { makeStyles } from "@mui/styles";
 
 // Components
+import NavigationBar from "../reuseable-components/NavigationBar";
 import bgImage from "../../images/mountain.jpg";
 import BgImage from "./BgImage";
 import WelcomeText from "./WelcomeText";
@@ -14,7 +16,7 @@ import ThreeD from "../translate-3d/ThreeD";
 
 const useStyles = makeStyles({
     content: {
-        width: "100%",
+        minWidth: "85%",
         height: "100vh",
         position: "relative",
         // padding: "30px",
@@ -22,7 +24,10 @@ const useStyles = makeStyles({
         backgroundColor: "#082032",
         color: "rgba(255, 255, 255, 0.7)",
         borderLeft: "1px solid black",
-        overflow: "auto",
+        overflowX: "hidden",
+        transition: "0.7s ease-in-out",
+        transitionDelay: "0.2s",
+        overflowY: "auto",
         '&::-webkit-scrollbar': {
             width: '0em'
           },
@@ -35,11 +40,18 @@ const useStyles = makeStyles({
         }
     },
 
+    content_container: {
+        // position: "relative",
+        width: "100%",
+        height: "100%",
+        display: "flex"
+    },
+
     main_section: {
         position: "absolute",
         top: "0px",
         left: "0px",
-        width: "100%",
+        width: "90%",
         height: "100%",
         zIndex: "1",
         overflow: "auto",
@@ -50,23 +62,23 @@ const useStyles = makeStyles({
         // backgroundColor: "gray"
     },
 
-    mainContent_content: {
-        width: "100%",
-        height: "400px",
-        backgroundColor: "green",
-        position: "relative"
-        // opacity: "0.5"
-    },
+    // mainContent_content: {
+    //     width: "100%",
+    //     height: "400px",
+    //     backgroundColor: "green",
+    //     position: "relative"
+    //     // opacity: "0.5"
+    // },
 
-    welcome_text: {
-        position: "absolute",
-        top: "0px",
-        left: "0px",
-        width: "100%",
-        height: "100%",
-        zIndex: "1",
-        paddingLeft: "60px"
-    }
+    // welcome_text: {
+    //     position: "absolute",
+    //     top: "0px",
+    //     left: "0px",
+    //     width: "100%",
+    //     height: "100%",
+    //     zIndex: "1",
+    //     paddingLeft: "60px"
+    // }
 
 });
 
@@ -83,21 +95,36 @@ export default function Content() {
 
     const classes = useStyles();
 
+    const [navbarWidth, setNavbarWidth] = useState(10);
+
+    const expandNavbar = () => {
+        setNavbarWidth(25);
+    }
+
+
 
     return (
-        <div className={classes.content}>
+        <div 
+            className={classes.content} 
+        >
             <BgImage />
-            <div className={classes.main_section}>
-                <WelcomeText />
-                <Overview />
-                <MyServices />
-                <PricePlans />
-                <Testimonials />
-                <ThreeD />
-            </div>
-            
+            <div className={classes.content_container}>
 
-          
+                <div className={classes.main_section}>
+                    <WelcomeText />
+                    <Overview />
+                    <MyServices />
+                    <PricePlans />
+                    <Testimonials />
+                    <ThreeD />
+                </div>
+                <NavigationBar
+                    navbarWidth = {navbarWidth} 
+                    expandNavbar = {expandNavbar}  
+                />
+
+            </div>
+           
 
         </div>
     );

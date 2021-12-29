@@ -1,0 +1,48 @@
+.portfolio {
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.637);
+    margin: auto;
+}
+
+.portfolioProject_title {
+    width: 100%;
+    height: 580px;
+    overflow: hidden;
+}
+
+.project_details {
+    width: 100%;
+    display: flex;
+}
+
+.project_description {
+    width: 60%;
+    min-height: 180px;
+    background-color: rgba(0, 0, 0, 0.295);
+    margin-right: 5%;
+    padding: 3%;
+    color: white;
+}
+
+.project_summary {
+    width: 35%;
+    min-height: 180px;
+    background-color: rgba(0, 0, 0, 0.295);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 600px) {
+    .portfolio {
+        width: 100%;
+    }
+}
+

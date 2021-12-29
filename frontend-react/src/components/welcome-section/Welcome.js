@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import { CircularProgressbar } from "react-circular-progressbar";
 
@@ -7,6 +7,7 @@ import { CircularProgressbar } from "react-circular-progressbar";
 import Image from "../../../src/images/IMG20180125111801.jpg";
 import ProfileImage from "./ProfileImage";
 import PersonalDetails from "./PersonalDetails";
+import NavigationBar from "../reuseable-components/NavigationBar";
 import Content from "../content/Content";
 import Filter from "../filters/Filter";
 
@@ -26,12 +27,19 @@ export default function Welcome() {
 
     const classes = useStyles();
 
+  
+
+
     return (
         <div className={classes.welcome}>
             {/* <ProfileImage /> */}
             {/* <Filter /> */}
             <PersonalDetails />
             <Content />
+            {/* <NavigationBar 
+                navbarWidth = {navbarWidth} 
+                expandNavbar = {expandNavbar} 
+            /> */}
          
         </div>
     );
